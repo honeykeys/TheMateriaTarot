@@ -1,0 +1,315 @@
+<resources>
+    <string name="app_name">MateriaTarot</string>
+
+    <string name="fool_name">The Fool</string>
+    <string name="fool_upright">Innocence, Originality, Spontaneity, Beginnings</string>
+    <string name="fool_reversed">Irrationality, Recklessness, Carelessness, Negligence</string>
+
+    <string name="magician_name">The Magician</string>
+    <string name="magician_upright">Willpower, Resourcefulness, Intellect, Skill</string>
+    <string name="magician_reversed">Trickery, Cunning, Mental Fog, Greed</string>
+
+    <string name="priestess_name">The High Priestess</string>
+    <string name="priestess_upright">Mystery, Sensuality, Spirituality, Creativity</string>
+    <string name="priestess_reversed">Repressed Intuition, Psychic Blocks, Broken Self-Belief</string>
+
+    <string name="empress_name">The Empress</string>
+    <string name="empress_upright">Fertility, Harmony, Feminine Authority, Harmony</string>
+    <string name="empress_reversed">Infertility, Disharmony, Negligence, Insecurity</string>
+
+    <string name="emperor_name">The Emperor</string>
+    <string name="emperor_upright">Stability, Dependability, Structure, Masculine Authority,</string>
+    <string name="emperor_reversed">Rigidity, Stubbornness, Tyranny, Insecurity</string>
+
+    <string name="hierophant_name">The Hierophant</string>
+    <string name="hierophant_upright">Commitment, Conformity, Tradition, Convention</string>
+    <string name="hierophant_reversed">Rebellion, Reversal, Non-Conformity, Irregularity</string>
+
+    <string name="lovers_name">The Lovers</string>
+    <string name="lovers_upright">Partnerships, Romance, Love, Unity</string>
+    <string name="lovers_reversed">Disharmony, Disconnection, Detachment, Imbalance</string>
+
+    <string name="chariot_name">The Chariot</string>
+    <string name="chariot_upright">Victory, Success, Ambition, Determination</string>
+    <string name="chariot_reversed">Forcefulness, Powerlessness, Aggression, Coercion</string>
+
+    <string name="strength_name">Strength</string>
+    <string name="strength_upright">Inner Strength, Courage, Bravery, Confidence</string>
+    <string name="strength_reversed">Vulnerability, Self-Doubt, Weakness, Unconfident</string>
+
+    <string name="hermit_name">The Hermit</string>
+    <string name="hermit_upright">Solitude, Contemplation, Reflection, Introspection</string>
+    <string name="hermit_reversed">Loneliness, Isolation, Reclusive, Restrictive</string>
+
+    <string name="wheel_name">Wheel of Fortune</string>
+    <string name="wheel_upright">Destiny, Change, Fate, Cycles</string>
+    <string name="wheel_reversed">Upheaval, Disorder, Disruption, Delays</string>
+
+    <string name="justice_name">Justice</string>
+    <string name="justice_upright">Integrity, Honesty, Justice, Consequences</string>
+    <string name="justice_reversed">Injustice, Dishonesty, Corruption, Dishonesty</string>
+
+    <string name="hanged_name">The Hanged Man</string>
+    <string name="hanged_upright">Confinement, Limitations, Uncertainty, Reframing</string>
+    <string name="hanged_reversed">Discontent, Apathy, Stagnation, Detachment</string>
+
+    <string name="death_name">Death</string>
+    <string name="death_upright">Transformation, Upheaval, Endings, Change</string>
+    <string name="death_reversed">Dependency, Hesitation, Stagnancy, Resistance to Change</string>
+
+    <string name="temperance_name">Temperance</string>
+    <string name="temperance_upright">Balance, Patience, Tranquility, Peace</string>
+    <string name="temperance_reversed">Imbalance, Excess, Discord, Hastiness</string>
+
+    <string name="devil_name">The Devil</string>
+    <string name="devil_upright">Addiction, Depression, Bondage, Obsession</string>
+    <string name="devil_reversed">Detachment, Freedom, Revelation, Sobriety</string>
+
+    <string name="tower_name">The Tower</string>
+    <string name="tower_upright">Chaos, Destruction, Trauma, Revelations</string>
+    <string name="tower_reversed">Resisting Change, Delaying the Inevitable</string>
+
+    <string name="star_name">The Star</string>
+    <string name="star_upright">Hope, Inspiration, Calm, Contentment</string>
+    <string name="star_reversed">Hopelessness, Despair, Boredom, Monotony</string>
+
+    <string name="moon_name">The Moon</string>
+    <string name="moon_upright">Intuition, Illusion, Dreams, Insecurity</string>
+    <string name="moon_reversed">Truth, Composure, Self-Deception, Release</string>
+
+    <string name="sun_name">The Sun</string>
+    <string name="sun_upright">Positivity, Success, Optimism, Confidence</string>
+    <string name="sun_reversed">Pessimism, Conceitedness, Oppression, Stillbirth</string>
+
+    <string name="judgement_name">Judgement</string>
+    <string name="judgement_upright">Awakening, Renewal, Composure, Decisiveness</string>
+    <string name="judgement_reversed">Indecision, Self-restriction, Fear</string>
+
+    <string name="world_name">The World</string>
+    <string name="world_upright">Completion, Fulfillment, Wholeness, Travel</string>
+    <string name="world_reversed">Stagnation, Disappointment, Burden, Incomplete</string>
+
+    <string name="cupsone_name">Ace of Cups</string>
+    <string name="cupsone_upright">New Beginnings, New Romance, New Joy, New Life</string>
+    <string name="cupsone_reversed">Unrequited, Repression, Blocked, Disappointment</string>
+
+    <string name="cupstwo_name">The Two of Cups</string>
+    <string name="cupstwo_upright">Partnership, Unity, Love, Balance</string>
+    <string name="cupstwo_reversed">Disharmony, Imbalance, Inequality, Incompatibility</string>
+
+    <string name="cupsthree_name">The Three of Cups</string>
+    <string name="cupsthree_upright">Reunions, Celebrations, Socializing, Gatherings</string>
+    <string name="cupsthree_reversed">Cheating, Cancellations, Overindulgence</string>
+
+    <string name="cupsfour_name">The Four of Cups</string>
+    <string name="cupsfour_upright">Regret, Apathy, Disillusionment, Frustration</string>
+    <string name="cupsfour_reversed">Enthusiasm, Motivation, Stagnation, Opportunities</string>
+
+    <string name="cupsfive_name">The Five of Cups</string>
+    <string name="cupsfive_upright">Despair, Loss, Grief, Guilt</string>
+    <string name="cupsfive_reversed">Acceptance, Forgiveness, Healing, Release</string>
+
+    <string name="cupssix_name">The Six of Cups</string>
+    <string name="cupssix_upright">Nostalgia, Children, Childhood Memories, Protection</string>
+    <string name="cupssix_reversed">Stagnation, Maturity, Growing Up, Resolution</string>
+
+    <string name="cupsseven_name">The Seven of Cups</string>
+    <string name="cupsseven_upright">Possibilities, Choice, Imagination, Hallucinations</string>
+    <string name="cupsseven_reversed">Reality, Clarity, Sobriety, Restriction</string>
+
+    <string name="cupseight_name">The Eight of Cups</string>
+    <string name="cupseight_upright">Abandonment, Escapism, Withdrawal, Disappointment</string>
+    <string name="cupseight_reversed">Stagnation, Monotony, Clinginess, Fear of Abandonment</string>
+
+    <string name="cupsnine_name">The Nine of Cups</string>
+    <string name="cupsnine_upright">Positivity, Abundance, Achievements, Sensuality</string>
+    <string name="cupsnine_reversed">Arrogance, Misery, Immaturity, Disadvantage</string>
+
+    <string name="cupsten_name">The Ten of Cups</string>
+    <string name="cupsten_upright">Happiness, Stability, Security, Destiny</string>
+    <string name="cupsten_reversed">Dysfunction, Disharmony, Separation, Insecurity</string>
+
+    <string name="cupseleven_name">The Page of Cups</string>
+    <string name="cupseleven_upright">Idealism, Sensitivity, Dreamer, Spirituality</string>
+    <string name="cupseleven_reversed">Envy, Jealousy, Seduction, Childishness</string>
+
+    <string name="cupstwelve_name">The Knight of Cups</string>
+    <string name="cupstwelve_upright">Chivalry, Imagination, Diplomacy, Negotiation</string>
+    <string name="cupstwelve_reversed">Manipulation, Procrastination, Turmoil, Blocks</string>
+
+    <string name="cupsthirteen_name">The Queen of Cups</string>
+    <string name="cupsthirteen_upright">Security, Femininity, Inspirational, Daydreamer</string>
+    <string name="cupsthirteen_reversed">Emotional Immaturity, Frivolity, Depression, Vengeance</string>
+
+    <string name="cupsfourteen_name">The King of Cups</string>
+    <string name="cupsfourteen_upright">Maturity, Diplomacy, Generosity, Balance</string>
+    <string name="cupsfourteen_reversed">Depression, Unbalanced, Deviance, Repression</string>
+
+    <string name="pentaone_name">The Ace of Pentacles</string>
+    <string name="pentaone_upright">Financial Opportunities, Money, Prosperity, Security</string>
+    <string name="pentaone_reversed">Scarcity, Deficiency, Instability, Insecurity</string>
+
+    <string name="pentatwo_name">The Two of Pentacles</string>
+    <string name="pentatwo_upright">Resourcefulness, Balance, Adaptability, Flexibility</string>
+    <string name="pentatwo_reversed">Imbalance, Overextension, Overwhelming, Juggling</string>
+
+    <string name="pentathree_name">The Three of Pentacles</string>
+    <string name="pentathree_upright">Apprenticeship, Learning, Studying, Growing</string>
+    <string name="pentathree_reversed">Unwillingness to Learn, Apathy, No Determination, No Motivation</string>
+
+    <string name="pentafour_name">The Four of Pentacles</string>
+    <string name="pentafour_upright">Stinginess, Financial Security, Materialism, Wealth</string>
+    <string name="pentafour_reversed">Gambling, Theft, Generosity, Openness</string>
+
+    <string name="penatfive_name">The Five of Pentacles</string>
+    <string name="pentatfive_upright">Struggle, Hardship, Poverty, Unemployment</string>
+    <string name="pentafive_reversed">Overcoming Adversity, Employment, Progression, Forgiveness</string>
+
+    <string name="pentasix_name">The Six of Pentacles</string>
+    <string name="pentasix_upright">Generosity, Donations, Money, Investment</string>
+    <string name="pentasix_reversed">Unemployment, Undervalued, Greed, Gullibility</string>
+
+    <string name="pentaseven_name">The Seven of Pentacles</string>
+    <string name="pentaseven_upright">Gestation, Nurturing, Perseverance, Crossroads</string>
+    <string name="pentaseven_reversed">Aimlessness, Laziness, Frustration, Procrastination</string>
+
+    <string name="pentaeight_name">Eight of Pentacles</string>
+    <string name="pentaeight_upright">Craftsmanship, Quality, Expertise, Commitment</string>
+    <string name="pentaeight_reversed">Carelessness, Mediocrity, Laziness, Materialistic</string>
+
+    <string name="pentanine_name">The Nine of Pentacles</string>
+    <string name="pentanine_upright">Independence, Wealth, Prosperity, Elegance</string>
+    <string name="pentanine_reversed">Termination, Miscarriage, Deceit, Theft</string>
+
+    <string name="pentaten_name">The Ten of Pentacles</string>
+    <string name="pentaten_upright">Inheritance, Affluence, Marriage, Pensions</string>
+    <string name="pentaten_reversed">Instability, Unconventional, Shakiness, Dissolution</string>
+
+    <string name="pentaeleven_name">The Page of Pentacles</string>
+    <string name="pentaeleven_upright">Consistency, Ambitions, Dependability, Loyalty</string>
+    <string name="pentaeleven_reversed">Irresponsibility, Rebellion, Immaturity, Frustration</string>
+
+    <string name="pentatwelve_name">The Knight of Pentacles</string>
+    <string name="pentatwelve_upright">Patience, Loyalty, Responsibility, Persistence</string>
+    <string name="pentatwelve_reversed">Impatience, Apathy, Unreliability, Weakness</string>
+
+    <string name="pentathirteen_name">The Queen of Pentacles</string>
+    <string name="pentathirteen_upright">Organized, Prosperity, Success, Luxury</string>
+    <string name="pentathirteen_reversed">Sociopath, Impracticality, Chaos, Manipulation</string>
+
+    <string name="pentafourteen_name">The King of Pentacles</string>
+    <string name="pentafourteen_upright">Success, Wealth, High Status, Loyalty</string>
+    <string name="pentafourteen_reversed">Corruption, Instability, Disloyalty, Obstinance</string>
+
+    <string name="swordsone_name">The Ace of Swords</string>
+    <string name="swordsone_upright">Intensity, Assertiveness, Authority, Mental Alacrity</string>
+    <string name="swordsone_reversed">Failure, Misinformation, Frustration, Destruction</string>
+
+    <string name="swordstwo_name">The Two of Swords</string>
+    <string name="swordstwo_upright">Opposition, Divided Loyalty, Denial, Stalemate</string>
+    <string name="swordstwo_reversed">Indecision, Delays, Turmoil, Coldness</string>
+
+    <string name="swordsthree_name">The Three of Swords</string>
+    <string name="swordsthree_upright">Loneliness, Removal, Absence, Depression</string>
+    <string name="swordsthree_reversed">Optimism, Forgiveness, Reconciliation, Release</string>
+
+    <string name="swordsfour_name">The Four of Words</string>
+    <string name="swordsfour_upright">Anxiety, Stress, Introspection, Contemplation</string>
+    <string name="swordsfour_reversed">Awakening, Recovery, Healing, Self-Protection</string>
+
+    <string name="swordsfive_name">The Five of Swords</string>
+    <string name="swordsfive_upright">Intimidation, Aggression, Deception, Change</string>
+    <string name="swordsfive_reversed">Relentless, Revenge, Escalation, Humiliation</string>
+
+    <string name="swordssix_name">The Six of Swords</string>
+    <string name="swordssix_upright">Guidance, Journeys, Progress, Healing</string>
+    <string name="swordssix_reversed">Slow Healing, Frustrated Progress, Delays</string>
+
+    <string name="swordsseven_name">The Seven of Swords</string>
+    <string name="swordsseven_upright">Deceit, Trickery, Courage, Cunning</string>
+    <string name="swordsseven_reversed">Malicious, Conscience, Blackmail, Confession</string>
+
+    <string name="swordseight_name">The Eight of Swords</string>
+    <string name="swordseight_upright">Restriction, Victimization, Pressure, Dilemma</string>
+    <string name="swordseight_reversed">Empowerment, Healing, Anxiety, Punishment</string>
+
+    <string name="swordsnine_name">The Nine of Swords</string>
+    <string name="swordsnine_upright">Despair, Nightmares, Insomnia, Isolation</string>
+    <string name="swordsnine_reversed">Acceptance, Recovery, Improvement, Hallucinations</string>
+
+    <string name="swordsten_name">The Ten of Swords</string>
+    <string name="swordsten_upright">Betrayal, Enemies, Exhaustion, Bitterness</string>
+    <string name="swordsten_reversed">Despair, Ruin, Releapse, Disaster</string>
+
+    <string name="swordseleven_name">The Page of Swords</string>
+    <string name="swordseleven_upright">Communication, Education, Mental Agility, Directness</string>
+    <string name="swordseleven_reversed">Disappointment, Paranoia, Cynicism, Sarcasm</string>
+
+    <string name="swordstwelve_name">The Knight of Swords</string>
+    <string name="swordstwelve_upright">Impatience, Impulsiveness, Courage, Heroism</string>
+    <string name="swordstwelve_reversed">Danger, Tactfulness, Insincerity, Sarcasm</string>
+
+    <string name="swordsthirteen_name">The Queen of Swords</string>
+    <string name="swordsthirteen_upright">Honesty, Truthfulness, Protection, Self-Reliance</string>
+    <string name="swordsthirteen_reversed">Pessimism, Vindictive, Dysfunctional, Dependence</string>
+
+    <string name="swordsfourteen_name">The King of Swords</string>
+    <string name="swordsfourteen_upright">Structure, Intelligence, Rationality, Detachment</string>
+    <string name="swordsfourteen_reversed">Oppression, Violence, Ruthlessness, Dishonesty</string>
+
+    <string name="wandsone_name">The Ace of Wands</string>
+    <string name="wandsone_upright">Creativity, Initiative, Passion, Enthusiasm</string>
+    <string name="wandsone_reversed">Delays, Hesitation, Disappointment, Predictability</string>
+
+    <string name="wandstwo_name">The Two of Wands</string>
+    <string name="wandstwo_upright">Anticipation, Restlesness, Detachment, Wanderlust</string>
+    <string name="wandstwo_reversed">Indecision, Restriction, Fear, Self-Doubt</string>
+
+    <string name="wandsthree_name">The Three of Wands</string>
+    <string name="wandsthree_upright">Travel, Freedom, Success, Self-Confidence</string>
+    <string name="wandsthree_reversed">Frustration, Confidence, Disappointment, Failure</string>
+
+    <string name="wandsfour_name">The Four of Wands</string>
+    <string name="wandsfour_upright">Family, Reunion, Surprise, Stability</string>
+    <string name="wandsfour_reversed">Instability, Insecurity, Neglect, Self-Doubt</string>
+
+    <string name="wandsfive_name">The Five of Wands</string>
+    <string name="wandsfive_upright">Chaos, Temper, Frustration, Irritation</string>
+    <string name="wandsfive_reversed">Compromise, Peace, Harmony, Shyness</string>
+
+    <string name="wandssix_name">The Six of Wands</string>
+    <string name="wandssix_upright">Victory, Success, Crowds, Confidence</string>
+    <string name="wandssix_reversed">Failure, Treachery, Disloyalty, Weakness</string>
+
+    <string name="wandsseven_name">The Seven of Wands</string>
+    <string name="wandsseven_upright">Determination, Stamina, Relentlessness, Willfulness</string>
+    <string name="wandsseven_reversed">Weakness, Compromise, Exhaustion, Defeat</string>
+
+    <string name="wandseight_name">The Eight of Wands</string>
+    <string name="wandseight_upright">Progress, Movement, Action, Travel</string>
+    <string name="wandseight_reversed">Panic, Hysterics, Impulse, Impatience</string>
+
+    <string name="wandsnine_name">The Nine of Wands</string>
+    <string name="wandsnine_upright">Perseverance, Persistence, Guarded, Strength of Will</string>
+    <string name="wandsnine_reversed">Fatigue, Rigidity, Weakness, Trouble</string>
+
+    <string name="wandsten_name">The Ten of Wands</string>
+    <string name="wandsten_upright">Responsibilities, Challenges, Restrictions, Struggle</string>
+    <string name="wandsten_reversed">Breakdown, Impossibility, Overworked, Unprepared</string>
+
+    <string name="wandseleven_name">The Page of Wands</string>
+    <string name="wandseleven_upright">Cheer, Optimism, Energy, Charisma</string>
+    <string name="wandseleven_reversed">Gullibility, Delinquency, Procrastination, Tantrums</string>
+
+    <string name="wandstwelve_name">The Knight of Wands</string>
+    <string name="wandstwelve_upright">Adventure, Energy, Charm, Bravery</string>
+    <string name="wandstwelve_reversed">Arrogance, Fear, Passivity, Recklessness</string>
+
+    <string name="wandsthirteen_name">The Queen of Wands</string>
+    <string name="wandsthirteen_upright">Courage, Energy, Assertion, Independence</string>
+    <string name="wandsthirteen_reversed">Overbearing, Spite, Jealousy, Manipulation</string>
+
+    <string name="wandsfourteen_name">The King of Wands</string>
+    <string name="wandsfourteen_upright">Energy, Experience, Optimism, Confidence</string>
+    <string name="wandsfourteen_reversed">Motivation, Pride, Passion, Honesty</string>
+</resources>
