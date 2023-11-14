@@ -3,7 +3,6 @@ package com.honeykeys.materiatarot.ui
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.honeykeys.materiatarot.data.CardPosition
 import com.honeykeys.materiatarot.data.TarotCard
 import com.honeykeys.materiatarot.data.TarotReadingRepository
 import com.honeykeys.materiatarot.data.fullCards

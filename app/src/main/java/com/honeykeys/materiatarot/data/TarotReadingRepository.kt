@@ -1,5 +1,6 @@
 package com.honeykeys.materiatarot.data
 
+import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
@@ -7,10 +8,14 @@ import java.time.LocalDate
 import javax.inject.Inject
 import kotlin.random.Random
 import kotlin.random.nextInt
+import android.content.Context
+
+
 
 class TarotReadingRepository @Inject constructor(
-    private val readingDao: ReadingDao,
+    private val readingDao: ReadingDao
 ) {
+
     fun getAllCards(): List<TarotCard> {
         return fullCards
     }

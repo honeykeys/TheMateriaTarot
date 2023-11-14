@@ -11,18 +11,11 @@ import com.honeykeys.materiatarot.R
 import com.honeykeys.materiatarot.data.TarotCard
 import com.honeykeys.materiatarot.data.fullCards
 import com.honeykeys.materiatarot.ui.MainViewModel
-import com.honeykeys.materiatarot.util.GenerateRandomBoolean
-import com.honeykeys.materiatarot.util.shuffleDeck
 import java.lang.Boolean.TRUE
 
 
  @Composable
 fun TarotCardViewer() {
-    LazyRow () {
-        items(shuffledDeck.size) { tarotItem ->
-            TarotCardItem(shuffledDeck[tarotItem])
-        }
-    }
 }
 
 @Composable

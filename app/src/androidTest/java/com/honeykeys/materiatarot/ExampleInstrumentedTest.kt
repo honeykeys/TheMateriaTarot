@@ -15,11 +15,5 @@ import javax.inject.Inject
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class UnitTest(
-    @Inject val tarotReadingRepository: TarotReadingRepository
-){
-    @Test
-    fun testGetAllCards() {
-        println(tarotReadingRepository.getAllCards())
-    }
+class TarotReadingRepositoryTest(){
 }

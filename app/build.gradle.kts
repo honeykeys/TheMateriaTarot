@@ -76,9 +76,26 @@ dependencies {
     val room_version = "2.6.0"
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation ("androidx.room:room-ktx:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
 
+    implementation("com.squareup.moshi:moshi:1.14.0")
+    implementation ("com.squareup.moshi:moshi-kotlin:1.14.0")
+    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+
+    testImplementation ("org.mockito:mockito-core:3.12.4")
+    testImplementation("androidx.room:room-testing:$room_version")
+
+    testImplementation("junit:junit:4.13.2")
+
+    // AndroidX Test dependencies for instrumented tests
+    androidTestImplementation("androidx.test.ext:junit:1.4.0")
+    androidTestImplementation("androidx.test:core-ktx:1.5.0")
+    androidTestImplementation("androidx.test:runner:1.5.2")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+
 }
+
 
 kapt {
     correctErrorTypes = true
