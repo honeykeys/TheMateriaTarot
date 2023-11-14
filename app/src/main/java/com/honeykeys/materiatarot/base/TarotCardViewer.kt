@@ -18,7 +18,6 @@ import java.lang.Boolean.TRUE
 
  @Composable
 fun TarotCardViewer() {
-    val shuffledDeck = shuffleDeck(fullCards)
     LazyRow () {
         items(shuffledDeck.size) { tarotItem ->
             TarotCardItem(shuffledDeck[tarotItem])

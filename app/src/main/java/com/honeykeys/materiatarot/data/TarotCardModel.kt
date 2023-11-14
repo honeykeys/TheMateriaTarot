@@ -12,14 +12,5 @@ data class TarotCard(
     var isFlipped: Boolean = false
 )
 
-data class CardPosition(
-    val isFlipped: Boolean,
-    val isReversed: Boolean
-)
 
-data class TarotReading(
-    val readingName: String,
-    val readingDate: Date,
-    val readingDeck: List<TarotCard>
-)
 
