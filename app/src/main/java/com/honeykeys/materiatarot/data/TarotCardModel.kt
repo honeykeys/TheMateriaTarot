@@ -7,12 +7,19 @@ data class TarotCard(
     val cardNumber: Int,
     val cardImage: Int,
     val cardUpright: Int,
-    val cardReversed: Int
+    val cardReversed: Int,
+    var isReversed: Boolean = false,
+    var isFlipped: Boolean = false
+)
+
+data class CardPosition(
+    val isFlipped: Boolean,
+    val isReversed: Boolean
 )
 
 data class TarotReading(
     val readingName: String,
     val readingDate: Date,
-    val readingValues: List<TarotCard>
+    val readingDeck: List<TarotCard>
 )
 
