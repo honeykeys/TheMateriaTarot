@@ -88,12 +88,6 @@ dependencies {
 
     testImplementation("junit:junit:4.13.2")
 
-    // AndroidX Test dependencies for instrumented tests
-    androidTestImplementation("androidx.test.ext:junit:1.4.0")
-    androidTestImplementation("androidx.test:core-ktx:1.5.0")
-    androidTestImplementation("androidx.test:runner:1.5.2")
-    androidTestImplementation("androidx.test:rules:1.5.0")
-
 }
 
 

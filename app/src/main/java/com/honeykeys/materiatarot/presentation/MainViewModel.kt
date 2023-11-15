@@ -1,25 +1,21 @@
-package com.honeykeys.materiatarot.ui
+package com.honeykeys.materiatarot.presentation
 
-import androidx.compose.runtime.State
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import com.honeykeys.materiatarot.R
-import com.honeykeys.materiatarot.data.Reading
-import com.honeykeys.materiatarot.data.TarotCard
-import com.honeykeys.materiatarot.data.TarotReadingRepository
-import com.honeykeys.materiatarot.data.fullCards
 import java.time.LocalDate
 import javax.inject.Inject
-import kotlin.random.Random
+import dagger.hilt.android.lifecycle.HiltViewModel
 
-
-class MainViewModel @Inject constructor(private val repository: TarotReadingRepository): ViewModel() {
-
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repository: TarotReadingRepository
+): ViewModel() {
     val dailyCard = repository.getRandomCard()
     val allCards = repository.getAllCards()
-    var currentReading = Reading(0, LocalDate.now(), emptyList())
-
+    private var currentReading = Reading(0, LocalDate.now(), emptyList())
+    val currentCard: MutableState<Int> = mutableStateOf(R.drawable.cardback)
     fun startNewReading() {
         currentReading = repository.startNewReading()
     }

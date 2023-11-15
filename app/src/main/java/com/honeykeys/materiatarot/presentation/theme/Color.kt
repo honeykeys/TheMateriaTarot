@@ -1,4 +1,4 @@
-package com.honeykeys.materiatarot.ui.theme
+package com.honeykeys.materiatarot.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

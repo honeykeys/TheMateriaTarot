@@ -10,12 +10,15 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 import android.content.Context
 import androidx.compose.runtime.MutableState
+import com.honeykeys.materiatarot.MateriaTarotApp
+import com.honeykeys.materiatarot.domain.TarotReadingRepository
+import dagger.hilt.android.scopes.ViewModelScoped
 
 
-class TarotReadingRepository @Inject constructor(
-    private val readingDao: ReadingDao
-) {
-
+class TarotReadingRepositoryImpl @Inject constructor(
+    private val readingDao: ReadingDao,
+    private val appContext: MateriaTarotApp
+): TarotReadingRepository {
     fun getAllCards(): List<TarotCard> {
         return fullCards
     }
@@ -55,7 +58,6 @@ class TarotReadingRepository @Inject constructor(
         }
         card.isFlipped.value = true
     }
-
     private fun flipAllCards(deck: List<TarotCard>) {
         for (card in deck) {
             card.isFlipped.value = true

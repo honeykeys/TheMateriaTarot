@@ -1,4 +1,4 @@
-package com.honeykeys.materiatarot.ui.theme
+package com.honeykeys.materiatarot.presentation.theme
 
 import android.app.Activity
 import android.os.Build

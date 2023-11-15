@@ -10,6 +10,3 @@ import dagger.hilt.android.HiltAndroidApp
 abstract class ReadingDatabase: RoomDatabase() {
     abstract fun readingDao(): ReadingDao
 }
-
-@HiltAndroidApp
-class MateriaTarotApp: Application()

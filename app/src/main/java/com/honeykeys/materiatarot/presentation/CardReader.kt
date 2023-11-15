@@ -1,4 +1,4 @@
-package com.honeykeys.materiatarot.ui
+package com.honeykeys.materiatarot.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -24,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 @Composable
 
-fun TarotCardSurface(drawableState: MutableState<Int>) {
+fun TarotCardSurface(viewModel: MainViewModel = hiltViewModel()) {
     val context = LocalContext.current
 
     var offsetX by remember { mutableStateOf(0f)}
