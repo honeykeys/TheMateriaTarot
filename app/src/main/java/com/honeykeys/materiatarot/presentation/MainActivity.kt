@@ -12,7 +12,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.room.Room
 import com.honeykeys.materiatarot.data.ReadingDatabase
 import com.honeykeys.materiatarot.presentation.theme.MateriaTarotTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val db = Room.databaseBuilder(

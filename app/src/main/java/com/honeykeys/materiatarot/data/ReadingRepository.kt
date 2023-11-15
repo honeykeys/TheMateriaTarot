@@ -1,24 +1,23 @@
 package com.honeykeys.materiatarot.data
 
-import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
-import java.time.LocalDate
 import javax.inject.Inject
 import kotlin.random.Random
 import kotlin.random.nextInt
-import android.content.Context
-import androidx.compose.runtime.MutableState
 import com.honeykeys.materiatarot.MateriaTarotApp
-import com.honeykeys.materiatarot.domain.TarotReadingRepository
-import dagger.hilt.android.scopes.ViewModelScoped
 
 
-class TarotReadingRepositoryImpl @Inject constructor(
+class ReadingRepository @Inject constructor(
     private val readingDao: ReadingDao,
     private val appContext: MateriaTarotApp
-): TarotReadingRepository {
+) {
+
+    init {
+        var currentReading: Reading
+        var currentCard: TarotCard
+    }
     fun getAllCards(): List<TarotCard> {
         return fullCards
     }
@@ -26,16 +25,15 @@ class TarotReadingRepositoryImpl @Inject constructor(
         val randomCard = Random.nextInt(1..78)
         return fullCards[randomCard]
     }
-    fun startNewReading(): Reading {
+    fun startNewReading(): {
         val deck = fullCards.shuffled()
         generateRandomReversed(deck)
         flipAllCards(deck)
-
-        return Reading(
-            readingDate = LocalDate.now(),
-            readingDeck = deck
-        )
+        return deck
     }
+
+
+
      fun saveNewReading(reading: Reading) {
         val flippedCardsOnlyDeck = reading.readingDeck.filter{it.isFlipped.value}
         readingDao.insertReading(Reading(0, reading.readingDate, flippedCardsOnlyDeck))
