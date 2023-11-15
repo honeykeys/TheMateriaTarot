@@ -20,7 +20,7 @@ import com.honeykeys.materiatarot.data.EMPEROR
 import com.honeykeys.materiatarot.data.EMPRESS
 import com.honeykeys.materiatarot.data.ReadingDatabase
 import com.honeykeys.materiatarot.data.TarotCard
-import com.honeykeys.materiatarot.src.theme.MateriaTarotTheme
+import com.honeykeys.materiatarot.ui.theme.MateriaTarotTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

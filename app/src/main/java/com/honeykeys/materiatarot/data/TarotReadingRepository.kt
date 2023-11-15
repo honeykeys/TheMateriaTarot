@@ -9,7 +9,7 @@ import javax.inject.Inject
 import kotlin.random.Random
 import kotlin.random.nextInt
 import android.content.Context
-
+import androidx.compose.runtime.MutableState
 
 
 class TarotReadingRepository @Inject constructor(
@@ -33,11 +33,11 @@ class TarotReadingRepository @Inject constructor(
             readingDeck = deck
         )
     }
-    fun saveNewReading(reading: Reading) {
-        val flippedCardsOnlyDeck = reading.readingDeck.filter{it.isFlipped}
+     fun saveNewReading(reading: Reading) {
+        val flippedCardsOnlyDeck = reading.readingDeck.filter{it.isFlipped.value}
         readingDao.insertReading(Reading(0, reading.readingDate, flippedCardsOnlyDeck))
     }
-    fun getReading(id: Long): Reading {
+    fun startSavedReading(id: Long): Reading {
         return readingDao.getReadingById(id)
     }
     fun getAllReadingsFlow(): Flow<List<Long>> {
@@ -49,9 +49,16 @@ class TarotReadingRepository @Inject constructor(
             card.isReversed = Random.nextBoolean()
         }
     }
+    fun flipCard(card: TarotCard) {
+        if (card.isFlipped.value) {
+            return
+        }
+        card.isFlipped.value = true
+    }
+
     private fun flipAllCards(deck: List<TarotCard>) {
         for (card in deck) {
-            card.isFlipped = true
+            card.isFlipped.value = true
         }
     }
 }
