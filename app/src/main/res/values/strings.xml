@@ -312,4 +312,9 @@
     <string name="wandsfourteen_name">The King of Wands</string>
     <string name="wandsfourteen_upright">Energy, Experience, Optimism, Confidence</string>
     <string name="wandsfourteen_reversed">Motivation, Pride, Passion, Honesty</string>
+
+    <string name ="facedown">Click the Card to Reveal its Meaning.</string>
+    <string name ="facedown_two"> Swipe Left to Pass to the Next Card </string>
+    <string name ="facedown_three"> Swipe Right to Return to the Old Card</string>
+
 </resources>

@@ -5,20 +5,27 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.honeykeys.materiatarot.data.converters.DateConverters
-import com.honeykeys.materiatarot.data.converters.JsonConverters
+import com.honeykeys.materiatarot.data.converters.IntegerListTypeConverter
+import com.honeykeys.materiatarot.data.converters.IntegerMapTypeConverter
 import java.time.LocalDate
-import java.util.Date
 
 @Entity (tableName = "reading")
-@TypeConverters(DateConverters::class, JsonConverters::class)
+@TypeConverters(DateConverters::class, IntegerMapTypeConverter::class)
 data class Reading(
+
     @PrimaryKey(autoGenerate = true)
     val readingId: Long = 0,
+
     @ColumnInfo(name = "date_column")
     @TypeConverters(DateConverters::class)
     val readingDate: LocalDate,
+
     @ColumnInfo(name = "deck_column")
-    @TypeConverters(JsonConverters::class)
-    val readingDeck: List<TarotCard>
+    @TypeConverters(IntegerListTypeConverter::class)
+    val readingDeck: List<Int>,
+
+    @ColumnInfo(name = "reverse_column")
+    @TypeConverters(IntegerMapTypeConverter::class)
+    val positionMap: Map<Int, Int>
     )
 

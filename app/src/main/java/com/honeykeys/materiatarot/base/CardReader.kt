@@ -1,4 +1,4 @@
-package com.honeykeys.materiatarot.presentation
+package com.honeykeys.materiatarot.base
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -20,6 +20,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.input.pointer.positionChange
@@ -27,12 +28,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.honeykeys.materiatarot.presentation.ReadingViewModel
 import kotlinx.coroutines.launch
 
 @Composable
-fun TarotCardSurface(viewModel: ReadingViewModel) {
+fun CardReader(viewModel: ReadingViewModel) {
     val context = LocalContext.current
-    val cardArt = viewModel.cardArt
     var offsetX by remember { mutableStateOf(0f)}
     val coroutineScope = rememberCoroutineScope()
     val isVisible by remember{mutableStateOf(true)}
@@ -75,7 +76,7 @@ fun TarotCardSurface(viewModel: ReadingViewModel) {
                 animationSpec = tween(durationMillis = 500)
             )
         ) {
-            val imageResource = cardArt.value
+            val imageResource = viewModel.cardArt.value
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -83,6 +84,14 @@ fun TarotCardSurface(viewModel: ReadingViewModel) {
                                 viewModel.flipCardFaceUp()
                     },
                 contentAlignment = Alignment.Center) {
+                if (viewModel.isReversed.value) {
+                    Image(
+                        painter = painterResource(id = imageResource),
+                        contentDescription = null,
+                        modifier = Modifier.fillMaxSize().rotate(180f),
+                        contentScale = ContentScale.Fit
+                    )
+                }
                 Image(
                     painter = painterResource(id = imageResource),
                     contentDescription = null,
