@@ -1,16 +1,17 @@
 package com.honeykeys.materiatarot.presentation
 
-/*
-@HiltViewModel
-class LibraryViewModel @Inject constructor(
-    private val readingRepository: ReadingRepository
-): ViewModel() {
-    val libraryFlow: Flow<List<Int>> = readingRepository.getLibraryFlow()
-        .asLiveData(viewModelScope.coroutineContext)
-    private val selectedReading: MutableState<Int> = mutableStateOf(0)
+import androidx.lifecycle.ViewModel
+import com.honeykeys.materiatarot.data.ReadingRepository
+import java.time.LocalDate
+
+
+class LibraryViewModel (private val readingRepository: ReadingRepository): ViewModel() {
+
+    private var libraryMap: Map<Long, LocalDate> = readingRepository.getReadingMap()
     fun startOldReading(selectedReading: Int) {
-        /* navigate to the reading screen and give it the current reading id */
+        /* navigate to the reading screen */
+    }
+    fun updateLibrary() {
+        libraryMap = readingRepository.getReadingMap()
     }
 }
-
-*/

@@ -17,7 +17,7 @@ class ReadingViewModel constructor(
     private val deck: MutableState<List<Int>> = mutableStateOf(getDeck(false))
     private val card: MutableState<Int> = mutableStateOf(0)
     private val position: MutableState<Int> = mutableStateOf(0)
-    private val positionMap = mutableMapOf<Int, Boolean>()
+    private var positionMap = mutableMapOf<Int, Boolean>()
     val isReversed: MutableState<Boolean> = mutableStateOf(false)
     private val isFaceDown: MutableState<Boolean> = mutableStateOf(false)
     val cardArt: MutableState<Int> = mutableStateOf(getCardArt(card.value))
@@ -58,20 +58,23 @@ class ReadingViewModel constructor(
     }
     /* Sends the deck, the position the reading ended, and the map of isReversedValues
     * to the repository for saving */
-    suspend fun saveNewReading() {
+    fun saveNewReading() {
         if (position.value < 2) { return }
-        readingRepository.saveReading(deck.value, position.value, positionMap.toMap())
+        readingRepository.saveNewReading(deck.value, position.value, positionMap.toMap())
     }
     fun startNewReading() {
         type.value = "read"
         deck.value = getDeck(true)
+        positionMap.clear()
         position.value = 0
         card.value = deck.value[position.value]
         cardArt.value = getCardArt(card.value)
     }
-    fun startSavedReading() {
+    fun startSavedReading(id: Long) {
         type.value = "saved"
-        deck.value = readingRepository.getSavedDeck()
+        deck.value = readingRepository.getSavedReadingDeck(id)
+        positionMap.clear()
+        positionMap = readingRepository.getSavedReadingPositionMap(id).toMutableMap()
         position.value = 0
         card.value = deck.value[position.value]
         cardArt.value = getCardArt(card.value)
@@ -79,6 +82,7 @@ class ReadingViewModel constructor(
     fun startDeckReview() {
         type.value = "deck"
         deck.value = getDeck(false)
+        positionMap.clear()
         position.value = 0
         card.value = deck.value[position.value]
         cardArt.value = getCardArt(card.value)

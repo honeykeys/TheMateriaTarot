@@ -24,8 +24,8 @@ data class Reading(
     @TypeConverters(IntegerListTypeConverter::class)
     val readingDeck: List<Int>,
 
-    @ColumnInfo(name = "reverse_column")
+    @ColumnInfo(name = "positionmap_column")
     @TypeConverters(IntegerMapTypeConverter::class)
-    val positionMap: Map<Int, Int>
+    val positionMap: Map<Int, Boolean>
     )
 

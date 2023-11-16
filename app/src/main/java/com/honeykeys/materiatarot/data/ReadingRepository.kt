@@ -1,26 +1,16 @@
 package com.honeykeys.materiatarot.data
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
-import javax.inject.Inject
-import kotlin.random.Random
-import kotlin.random.nextInt
-import com.honeykeys.materiatarot.MateriaTarotApp
+import java.time.LocalDate
 
 
-class ReadingRepository1 @Inject constructor(
+class ReadingRepository constructor(
     private val readingDao: ReadingDao,
 ) {
-     fun saveNewReading(deck: List<Int>, position: Int, positionMap: Map<Int, Int>) {
-         val reading = Reading()
-    }
-    fun startSavedReading(id: Long): Reading {
-        return readingDao.getReadingById(id)
-    }
-    fun getAllReadingsFlow(): Flow<List<Long>> {
-        return readingDao.getAllReadings()
-            .flowOn(Dispatchers.IO)
-    }
+     fun saveNewReading(deck: List<Int>, position: Int, positionMap: Map<Int, Boolean>) =
+         readingDao.insertReading(Reading(0, LocalDate.now(), deck, positionMap))
+    fun getSavedReadingDeck(id: Long): List<Int> = readingDao.getReadingDeck(id)
+    fun getSavedReadingPositionMap(id: Long): Map<Int, Boolean> = readingDao.getPositionMap(id)
+    fun getReadingMap(): Map<Long, LocalDate> =
+            readingDao.getReadingIds().zip(readingDao.getReadingDates()).toMap()
 
 }

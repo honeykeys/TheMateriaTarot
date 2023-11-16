@@ -8,12 +8,12 @@ import java.lang.reflect.Type
 
 class IntegerMapTypeConverter {
     private val moshi: Moshi = Moshi.Builder().build()
-    private val mapType: Type = Types.newParameterizedType(Map::class.java, Int::class.java, Int::class.java)
-    private val adapter: JsonAdapter<Map<Int, Int>> = moshi.adapter(mapType)
+    private val mapType: Type = Types.newParameterizedType(Map::class.java, Int::class.java, Boolean::class.java)
+    private val adapter: JsonAdapter<Map<Int, Boolean>> = moshi.adapter(mapType)
     @TypeConverter
-    fun fromJson(value: String?): Map<Int, Int>? =
+    fun fromJson(value: String?): Map<Int, Boolean>? =
         value?.let { adapter.fromJson(it) }
     @TypeConverter
-    fun toJson(value: Map<Int, Int>?): String? =
+    fun toJson(value: Map<Int, Boolean>?): String? =
         value?.let { adapter.toJson(it) }
 }
