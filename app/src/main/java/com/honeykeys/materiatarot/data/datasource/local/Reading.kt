@@ -1,30 +1,29 @@
-package com.honeykeys.materiatarot.data
+package com.honeykeys.materiatarot.data.datasource.local
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.honeykeys.materiatarot.data.converters.DateConverters
 import com.honeykeys.materiatarot.data.converters.IntegerListTypeConverter
 import com.honeykeys.materiatarot.data.converters.IntegerMapTypeConverter
+import com.honeykeys.materiatarot.data.converters.LocalDateConverters
 import java.time.LocalDate
 
 @Entity (tableName = "reading")
-@TypeConverters(DateConverters::class, IntegerMapTypeConverter::class)
 data class Reading(
 
     @PrimaryKey(autoGenerate = true)
-    val readingId: Long = 0,
+    val readingId: Int = 0,
 
-    @ColumnInfo(name = "date_column")
-    @TypeConverters(DateConverters::class)
+    @ColumnInfo(name = "date")
+    @TypeConverters(LocalDateConverters::class)
     val readingDate: LocalDate,
 
-    @ColumnInfo(name = "deck_column")
+    @ColumnInfo(name = "deck")
     @TypeConverters(IntegerListTypeConverter::class)
-    val readingDeck: List<Int>,
+    val readingDeck: String,
 
-    @ColumnInfo(name = "positionmap_column")
+    @ColumnInfo(name = "positionmap")
     @TypeConverters(IntegerMapTypeConverter::class)
     val positionMap: Map<Int, Boolean>
     )

@@ -1,4 +1,6 @@
-package com.honeykeys.materiatarot.data
+package com.honeykeys.materiatarot.data.repository
+
+import com.honeykeys.materiatarot.data.datasource.local.fullCards
 
 class CardRepository constructor() {
     fun getCardArt (cardNumber: Int): Int {

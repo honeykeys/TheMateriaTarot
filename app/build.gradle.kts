@@ -73,6 +73,11 @@ dependencies {
     implementation ("androidx.room:room-ktx:$room_version")
     ksp("androidx.room:room-compiler:2.5.0")
 
-    implementation("com.squareup.moshi:moshi:1.12.0") // Replace 1.12.0 with the latest version
-    implementation("com.squareup.moshi:moshi-kotlin:1.12.0") // Moshi Kotlin adapter
+    implementation("com.squareup.moshi:moshi:1.12.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
+
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:$1.8.0")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:$1.8.0")
+
+
 }

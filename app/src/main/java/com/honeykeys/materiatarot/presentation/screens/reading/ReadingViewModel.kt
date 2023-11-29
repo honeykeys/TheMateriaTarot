@@ -1,11 +1,11 @@
-package com.honeykeys.materiatarot.presentation
+package com.honeykeys.materiatarot.presentation.screens.reading
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.honeykeys.materiatarot.R
-import com.honeykeys.materiatarot.data.CardRepository
-import com.honeykeys.materiatarot.data.ReadingRepository
+import com.honeykeys.materiatarot.data.repository.CardRepository
+import com.honeykeys.materiatarot.data.repository.ReadingRepository
 import kotlin.random.Random
 
 class ReadingViewModel constructor(
@@ -70,7 +70,7 @@ class ReadingViewModel constructor(
         card.value = deck.value[position.value]
         cardArt.value = getCardArt(card.value)
     }
-    fun startSavedReading(id: Long) {
+    fun startSavedReading(id: Int) {
         type.value = "saved"
         deck.value = readingRepository.getSavedReadingDeck(id)
         positionMap.clear()

@@ -1,4 +1,4 @@
-package com.honeykeys.materiatarot.base
+package com.honeykeys.materiatarot.util
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
@@ -28,7 +28,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.honeykeys.materiatarot.presentation.ReadingViewModel
+import com.honeykeys.materiatarot.presentation.screens.reading.ReadingViewModel
 import kotlinx.coroutines.launch
 
 @Composable

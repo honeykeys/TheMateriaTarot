@@ -1,14 +1,10 @@
 package com.honeykeys.materiatarot
 
-import androidx.room.Insert
-import com.honeykeys.materiatarot.data.ReadingDao
+import com.honeykeys.materiatarot.data.datasource.local.ReadingDao
 import com.honeykeys.materiatarot.data.TarotReadingRepository
-import com.honeykeys.materiatarot.data.fullCards
+import com.honeykeys.materiatarot.data.datasource.local.fullCards
 import org.mockito.Mockito.*
 import org.mockito.ArgumentMatchers.*
-import org.mockito.stubbing.OngoingStubbing
-import org.mockito.invocation.InvocationOnMock
-import org.mockito.Mockito
 
 import org.junit.Assert.*
 import org.junit.Before

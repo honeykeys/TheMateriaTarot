@@ -1,4 +1,4 @@
-package com.honeykeys.materiatarot.data
+package com.honeykeys.materiatarot.data.model
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

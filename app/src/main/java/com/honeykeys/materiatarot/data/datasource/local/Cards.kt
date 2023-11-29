@@ -1,6 +1,7 @@
-package com.honeykeys.materiatarot.data
+package com.honeykeys.materiatarot.data.datasource.local
 
 import com.honeykeys.materiatarot.R
+import com.honeykeys.materiatarot.data.model.TarotCard
 
 val FOOL = TarotCard(
     cardName = R.string.fool_name,
