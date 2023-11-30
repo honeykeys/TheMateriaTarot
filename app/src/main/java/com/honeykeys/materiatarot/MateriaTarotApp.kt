@@ -7,7 +7,7 @@ import com.honeykeys.materiatarot.di.AppContainer
 
 class MateriaTarotApp: Application() {
     companion object {
-        private lateinit var instance: MateriaTarotApp
+        lateinit var instance: MateriaTarotApp
         fun getAppContext(): Context {
             return instance.applicationContext
         }
