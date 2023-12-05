@@ -21,6 +21,7 @@ class ReadingRepository constructor(
          )
     fun getSavedReadingDeck(id: Int): List<Int> =
         integerConverter.fromStringToListOfIntegers(readingDao.getReadingDeck(id))
+
     fun getSavedReadingPositionMap(id: Int): Map<Int, Boolean> =
         mapConverter.fromJson(readingDao.getPositionMap(id))
     fun getReadingMap(): Map<Int, String> {

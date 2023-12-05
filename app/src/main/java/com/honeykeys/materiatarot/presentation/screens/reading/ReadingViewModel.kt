@@ -6,6 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.honeykeys.materiatarot.R
 import com.honeykeys.materiatarot.data.repository.CardRepository
 import com.honeykeys.materiatarot.data.repository.ReadingRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlin.random.Random
 
 class ReadingViewModel constructor(
@@ -19,7 +22,10 @@ class ReadingViewModel constructor(
     private val position: MutableState<Int> = mutableStateOf(0)
     private var positionMap = mutableMapOf<Int, Boolean>()
     val isReversed: MutableState<Boolean> = mutableStateOf(false)
-    private val isFaceDown: MutableState<Boolean> = mutableStateOf(false)
+
+    private var _isFaceDown = MutableStateFlow(true)
+    val isFaceDown: StateFlow<Boolean> = _isFaceDown.asStateFlow()
+
     val cardArt: MutableState<Int> = mutableStateOf(getCardArt(card.value))
 
     private fun getCardArt(cardNumber: Int): Int {
@@ -30,24 +36,20 @@ class ReadingViewModel constructor(
     fun nextCard() {
         if (isFaceDown.value) { return }
         if (position.value >= deck.value.size) { return }
-
         position.value += 1
-
-        if (type.value == "read") { randomizeCardReversed()}
-        if (type.value == "read") { isFaceDown.value = true}
-
+        randomizeCardReversed()
+        _isFaceDown.value = true
         card.value = deck.value[position.value]
     }
     /* moves the pointer right in the list, checking if the pointer is at the very
     rightmost index */
     fun lastCard() {
         if (position.value == 1) { return }
-
         position.value -= 1
         card.value = deck.value[position.value]
     }
     fun flipCardFaceUp() {
-        isFaceDown.value = false
+        _isFaceDown.value = false
     }
     /* generates a random reversed position for the current card
     * then adds that position to a map */
@@ -65,23 +67,6 @@ class ReadingViewModel constructor(
     fun startNewReading() {
         type.value = "read"
         deck.value = getDeck(true)
-        positionMap.clear()
-        position.value = 0
-        card.value = deck.value[position.value]
-        cardArt.value = getCardArt(card.value)
-    }
-    fun startSavedReading(id: Int) {
-        type.value = "saved"
-        deck.value = readingRepository.getSavedReadingDeck(id)
-        positionMap.clear()
-        positionMap = readingRepository.getSavedReadingPositionMap(id).toMutableMap()
-        position.value = 0
-        card.value = deck.value[position.value]
-        cardArt.value = getCardArt(card.value)
-    }
-    fun startDeckReview() {
-        type.value = "deck"
-        deck.value = getDeck(false)
         positionMap.clear()
         position.value = 0
         card.value = deck.value[position.value]
