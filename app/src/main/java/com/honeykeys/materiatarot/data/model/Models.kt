@@ -1,9 +1,5 @@
 package com.honeykeys.materiatarot.data.model
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import java.util.Date
-
 data class TarotCard(
     val cardName: Int,
     val cardNumber: Int,
@@ -11,8 +7,10 @@ data class TarotCard(
     val cardUpright: Int,
     val cardReversed: Int,
     var isReversed: Boolean = false,
-    var isFlipped: MutableState<Boolean> = mutableStateOf(false)
 )
 
-
-
+data class ReadingLayout(
+    val numberOfCards: Int,
+    val description: String,
+    val positionMeaning: List<String>
+)

@@ -1,38 +1,51 @@
 package com.honeykeys.materiatarot.data.repository
 
-import com.honeykeys.materiatarot.data.converters.IntegerListTypeConverter
-import com.honeykeys.materiatarot.data.converters.IntegerMapTypeConverter
-import com.honeykeys.materiatarot.data.datasource.local.Reading
 import com.honeykeys.materiatarot.data.datasource.local.ReadingDao
-import java.time.LocalDate
+import com.honeykeys.materiatarot.data.datasource.local.SavedReading
+import com.honeykeys.materiatarot.data.model.ReadingLayout
+import com.honeykeys.materiatarot.domain.TarotReading.TarotReading
+import com.honeykeys.materiatarot.util.layoutToString
+import com.honeykeys.materiatarot.util.stringToLayout
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 
 
 class ReadingRepository constructor(
-    private val readingDao: ReadingDao,
+    private val readingDao: ReadingDao
 ) {
+     suspend fun saveNewReading(reading: TarotReading) =
+         withContext(Dispatchers.IO) {
+             readingDao.insertReading(
+                 SavedReading(
+                     readingDeck = reading.readingCards,
+                     readingLayout = getLayoutName(reading.layout),
+                     readingQuestion = reading.question
+                 )
+             )
+         }
 
-    private val integerConverter = IntegerListTypeConverter()
-    private val mapConverter = IntegerMapTypeConverter()
-
-     fun saveNewReading(deck: List<Int>, position: Int, positionMap: Map<Int, Boolean>) =
-         readingDao.insertReading(
-             Reading(0, LocalDate.now(),
-                 integerConverter.fromListOfIntegersToString(deck), positionMap)
-         )
-    fun getSavedReadingDeck(id: Int): List<Int> =
-        integerConverter.fromStringToListOfIntegers(readingDao.getReadingDeck(id))
-
-    fun getSavedReadingPositionMap(id: Int): Map<Int, Boolean> =
-        mapConverter.fromJson(readingDao.getPositionMap(id))
-    fun getReadingMap(): Map<Int, String> {
-        val readingNumbers = readingDao.getReadingIds()
-        val readingDates = convertString(readingDao.getReadingDates())
-
-        val stringDates = readingDates.map { it.toString() }
-        return readingNumbers.zip(stringDates).toMap()
+    suspend fun getReadingIds(): Flow<List<Int>> {
+        return readingDao.getReadingIds()
     }
-    private fun convertString(stringList: List<String>): List<LocalDate> {
-        return stringList.map { LocalDate.parse(it) }
+
+    suspend fun getSavedReading(id: Int): TarotReading {
+
+        val reading = readingDao.getReading(id)
+
+        return TarotReading(
+            reading.readingDeck,
+            stringToLayout(reading.readingLayout),
+            reading.readingQuestion
+        )
+    }
+
+    fun getLayout(layout: String): ReadingLayout {
+        return stringToLayout(layout)
+    }
+
+    fun getLayoutName(layout: ReadingLayout): String {
+        return layoutToString(layout)
     }
 
 }

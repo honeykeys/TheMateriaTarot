@@ -1,8 +1,15 @@
 package com.honeykeys.materiatarot.data.repository
 
 import com.honeykeys.materiatarot.data.datasource.local.fullCards
+import com.honeykeys.materiatarot.data.model.TarotCard
+import kotlin.random.Random
 
-class CardRepository constructor() {
+class CardRepository() {
+    fun getTarotCard(cardNumber: Int): TarotCard {
+        val tarotCard = fullCards[cardNumber]
+        tarotCard.isReversed = Random.nextBoolean()
+        return tarotCard
+    }
     fun getCardArt (cardNumber: Int): Int {
         val myCard = fullCards[cardNumber]
         return myCard.cardImage

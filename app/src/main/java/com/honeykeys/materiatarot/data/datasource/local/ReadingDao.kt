@@ -3,22 +3,19 @@ package com.honeykeys.materiatarot.data.datasource.local
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
 interface ReadingDao {
     @Query("SELECT readingId FROM reading")
-    fun getReadingIds(): List<Int>
-    @Query("SELECT date FROM reading")
-    fun getReadingDates(): List<String>
+    fun getReadingIds(): Flow<List<Int>>
 
-    @Query("SELECT deck FROM reading WHERE readingId = :readingId")
-    fun getReadingDeck(readingId: Int): String
+    @Query("SELECT * FROM reading WHERE readingId = :readingId")
+    suspend fun getReading(readingId: Int): SavedReading
 
-    @Query("SELECT positionmap FROM reading WHERE readingId =:readingId")
-    fun getPositionMap(readingId: Int): String
     @Insert
-    fun insertReading(reading: Reading)
+    suspend fun insertReading(reading: SavedReading)
 }
 
 

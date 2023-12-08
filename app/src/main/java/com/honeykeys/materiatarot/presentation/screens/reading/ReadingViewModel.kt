@@ -1,100 +1,87 @@
 package com.honeykeys.materiatarot.presentation.screens.reading
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.honeykeys.materiatarot.R
-import com.honeykeys.materiatarot.data.repository.CardRepository
-import com.honeykeys.materiatarot.data.repository.ReadingRepository
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlin.random.Random
+import androidx.lifecycle.viewModelScope
+import com.honeykeys.materiatarot.data.model.TarotCard
+import com.honeykeys.materiatarot.domain.Library.LibraryUseCase
+import com.honeykeys.materiatarot.domain.TarotReading.TarotReading
+import com.honeykeys.materiatarot.domain.TarotReading.TarotReadingUseCase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ReadingViewModel constructor(
-    private val readingRepository: ReadingRepository,
-    private val cardRepository: CardRepository
+    private val tarotReadingUseCase: TarotReadingUseCase,
+    private val libraryUseCase: LibraryUseCase
 ): ViewModel() {
-    /* home = homescreen, read = readingscreen, deck = deckscreen */
-    private val type: MutableState<String> = mutableStateOf("home")
-    private val deck: MutableState<List<Int>> = mutableStateOf(getDeck(false))
-    private val card: MutableState<Int> = mutableStateOf(0)
-    private val position: MutableState<Int> = mutableStateOf(0)
-    private var positionMap = mutableMapOf<Int, Boolean>()
-    val isReversed: MutableState<Boolean> = mutableStateOf(false)
 
-    private var _isFaceDown = MutableStateFlow(true)
-    val isFaceDown: StateFlow<Boolean> = _isFaceDown.asStateFlow()
+    private val _activeReading = MutableLiveData<Boolean>(false)
+    val activeReading: LiveData<Boolean> = _activeReading
 
-    val cardArt: MutableState<Int> = mutableStateOf(getCardArt(card.value))
+    private val _showDetails = MutableLiveData<Boolean>(false)
+    val showDetails: LiveData<Boolean> = _showDetails
 
-    private fun getCardArt(cardNumber: Int): Int {
-        return cardRepository.getCardArt(cardNumber)
+    private val readingType = MutableLiveData<ReadingType>(ReadingType.NEW)
+
+    private val _currentReading = MutableLiveData<TarotReading>()
+    val currentReading: LiveData<TarotReading> = _currentReading
+
+    /* prompt the reader if they press startNewReading*/
+    private val _showDialog = MutableLiveData<Boolean>(false)
+    val showDialog: LiveData<Boolean> = _showDialog
+
+    fun triggerNewReadingDialog() {
+        _activeReading.value = false
+        _showDialog.value = true
     }
-    /* moves the pointer left in the List, checking if the pointer is at a position
-    * greater than or equal to the size of the deck list */
-    fun nextCard() {
-        if (isFaceDown.value) { return }
-        if (position.value >= deck.value.size) { return }
-        position.value += 1
-        randomizeCardReversed()
-        _isFaceDown.value = true
-        card.value = deck.value[position.value]
+
+    fun onDialogSubmit(layout: String, question: String) {
+        _showDialog.value = false
+        _activeReading.value = true
+        readingType.value = ReadingType.NEW
+        _currentReading.value = tarotReadingUseCase.setTarotReading(layout,question)
     }
-    /* moves the pointer right in the list, checking if the pointer is at the very
-    rightmost index */
-    fun lastCard() {
-        if (position.value == 1) { return }
-        position.value -= 1
-        card.value = deck.value[position.value]
+
+    fun onDialogDismiss() {
+        _showDialog.value = false
     }
-    fun flipCardFaceUp() {
-        _isFaceDown.value = false
+
+    fun getReadingCards(): List<TarotCard> {
+        return currentReading.value!!.readingCards
     }
-    /* generates a random reversed position for the current card
-    * then adds that position to a map */
-    private fun randomizeCardReversed() {
-        if (positionMap.containsKey(position.value)) { return }
-        isReversed.value = Random.nextBoolean()
-        positionMap[position.value]  =  isReversed.value
+
+    fun getReadingType(): ReadingType {
+        return readingType.value!!
     }
-    /* Sends the deck, the position the reading ended, and the map of isReversedValues
-    * to the repository for saving */
-    fun saveNewReading() {
-        if (position.value < 2) { return }
-        readingRepository.saveNewReading(deck.value, position.value, positionMap.toMap())
+
+    fun triggerReadingSave() {
+        viewModelScope.launch {
+            saveNewReading()
+        }
     }
-    fun startNewReading() {
-        type.value = "read"
-        deck.value = getDeck(true)
-        positionMap.clear()
-        position.value = 0
-        card.value = deck.value[position.value]
-        cardArt.value = getCardArt(card.value)
+
+    private suspend fun saveNewReading() {
+        withContext(Dispatchers.IO) {
+            currentReading.value?.let { tarotReadingUseCase.saveTarotReading(it) }
+        }
     }
-    fun getCardArt(): Int {
-        if (isFaceDown.value) { return R.drawable.cardback}
-        return cardRepository.getCardArt(card.value)
+
+    fun triggerSavedReading(readingId: Int) {
+        viewModelScope.launch {
+            startSavedReading(libraryUseCase.getSavedReading(readingId))
+        }
     }
-    fun getCardName(): Int {
-        if (isFaceDown.value) {return R.string.facedown}
-        return cardRepository.getCardName(card.value)
+
+    private suspend fun startSavedReading(reading: TarotReading) {
+        _activeReading.value = true
+        readingType.value = ReadingType.SAVED
+        _currentReading.value = reading
     }
-    fun getCardUpright(): Int {
-        if (isFaceDown.value) {return R.string.facedown_two}
-        return cardRepository.getCardUpright(card.value)
-    }
-    fun getCardReversed(): Int {
-        if (isFaceDown.value) {return R.string.facedown_three}
-        return cardRepository.getCardReversed(card.value)
-    }
-    fun getCardNumber(): Int {
-        if (isFaceDown.value) {return 0}
-        return card.value
-    }
-    private fun getDeck(shuffled: Boolean): List<Int> {
-        if (shuffled) {return (1..78).toList().shuffled()}
-        return (1..78).toList().shuffled()
+
+    fun toggleDetails() {
+        _showDetails.value = _showDetails.value != true
     }
 
 }

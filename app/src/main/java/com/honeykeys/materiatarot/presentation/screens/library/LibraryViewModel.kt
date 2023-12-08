@@ -1,28 +1,45 @@
 package com.honeykeys.materiatarot.presentation.screens.library
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.honeykeys.materiatarot.data.repository.CardRepository
-import com.honeykeys.materiatarot.data.repository.ReadingRepository
+import androidx.lifecycle.viewModelScope
+import com.honeykeys.materiatarot.domain.Library.LibraryUseCase
+import com.honeykeys.materiatarot.domain.TarotReading.TarotReading
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
+class LibraryViewModel(
+    private val libraryUseCase: LibraryUseCase
+) : ViewModel() {
 
-class LibraryViewModel (
-    private val readingRepository: ReadingRepository,
-    private val cardRepository: CardRepository): ViewModel() {
+    private val _savedReadingLabels = MutableStateFlow<List<Int>>(emptyList())
+    val savedReadingLabels: StateFlow<List<Int>> = _savedReadingLabels
 
-    private val _libraryMap: Map<Int, String> = readingRepository.getReadingMap()
-    val libraryMap = _libraryMap
+    private val _selectedReading = MutableLiveData<TarotReading?>()
+    val selectedReading: LiveData<TarotReading?> = _selectedReading
 
-    fun getCardNames(): List<Int> {
-
-        val deckValues = libraryMap.keys
-        val cardNames: MutableList<Int> = mutableListOf()
-
-        for (card in deckValues) {
-            cardNames.add(cardRepository.getCardName(card))
-        }
-
-        return cardNames
-
+    init {
+        fetchSavedReadingLabels()
     }
-    fun getLibrary(): Map<Int, String> = _libraryMap
+
+    private fun fetchSavedReadingLabels() {
+        viewModelScope.launch {
+            libraryUseCase.getSavedReadingLabels().collect { labels ->
+                _savedReadingLabels.value = labels
+            }
+        }
+    }
+    fun onReadingSelected(readingId: Int) {
+        viewModelScope.launch {
+            val savedReading = libraryUseCase.getSavedReading(readingId)
+            _selectedReading.value = savedReading
+        }
+    }
+
+    fun clearSelectedReadingId() {
+        null.also { _selectedReading.value = it }
+    }
+
 }
