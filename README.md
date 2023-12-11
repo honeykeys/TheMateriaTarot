@@ -38,6 +38,11 @@ FUTURE IMPROVEMENTS
 
 **FEATURES**
 - As I run the gauntlet of 20 testers to try and get this application on the PlayStore, I'll inevitably come across a few new feature requests. I plan to continue working on this application in the future, so if anything stands out, please feel free submit an issue or send me a message!
+- 
+
+![Screenshot from 2023-12-09 00-52-07](https://github.com/honeykeys/TheMateriaTarot/assets/73562496/a7b98b09-fb33-41b5-bd97-e6ae41a9b6b6)
+![Screenshot from 2023-12-09 00-52-39](https://github.com/honeykeys/TheMateriaTarot/assets/73562496/36436aed-033b-4942-8ec4-6285bdf974dc)
+![Screenshot from 2023-12-09 00-53-08](https://github.com/honeykeys/TheMateriaTarot/assets/73562496/9ca9a8f7-f00a-4e0f-af31-a443d00dddd0)
 
 
 I go into further detail about my design decisions and my learning journey in this blog.
