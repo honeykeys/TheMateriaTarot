@@ -13,9 +13,6 @@ STACK
   
 **Moshi for JSON conversions**
 - I used Moshi to convert my complex objects into JSON strings. At one point, I was using a List<TarotCard> and a Map<Integer, Boolean> to track certain behaviors, which required me to use two TypeConverters. I was able to refactor my application to not use the Map in the end.
-  
-**Retrofit for HTTP requests**
-- I wanted to include some kind of remote call in the application but I did not want to depend on a free API nor pay for one. I decided to develop my own using GCP Endpoints that I could keep relatively light-weight.
 
 **Flows / LiveData**
 - I decided to use both Flow and LiveData. I used a Flow to gather a stream of Integers to represent the ID numbers of saved Tarot Readings between my data and domain layers, which I then converted into LiveData that the UI could observe.
